@@ -3,7 +3,6 @@ package ru.yandex.praktikum.registration;
 import io.qameta.allure.junit4.DisplayName;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Test;
-import ru.yandex.praktikum.BaseTestChrome;
 import ru.yandex.praktikum.BaseTestYB;
 import ru.yandex.praktikum.RegistrationPage;
 
@@ -13,7 +12,7 @@ import static org.junit.Assert.assertTrue;
 public class RegistrationWithInvalidPasswordYBTest extends BaseTestYB {
     @Test
     @DisplayName("Check Registration With Invalid Password YB")
-    public void checkRegistrationWithInvalidPassword () {
+    public void checkRegistrationWithInvalidPassword() {
         final String name = RandomStringUtils.randomAlphabetic(8);
         final String email = RandomStringUtils.randomAlphabetic(10) + "@test.ru";
         final String password = RandomStringUtils.randomNumeric(5);
@@ -26,7 +25,6 @@ public class RegistrationWithInvalidPasswordYBTest extends BaseTestYB {
         registrationPage.clickRegButton();
 
         assertTrue(registrationPage.isInvalidPasswordMessageDisplayed());
-
     }
 }
 

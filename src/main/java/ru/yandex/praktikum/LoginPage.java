@@ -2,6 +2,7 @@ package ru.yandex.praktikum;
 
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
@@ -22,9 +23,28 @@ public class LoginPage {
     @FindBy(how = How.XPATH, using = "//a[contains(text(),'Восстановить пароль')]")
     public SelenideElement forgotPasswordButton;
 
-    public void setEmailLoginField (String email) { this.emailLoginField.sendKeys(email); }
-    public void setPasswordLoginField (String password) { this.passwordLoginField.sendKeys(password); }
-    public void clickLoginButton() { this.loginButton.click(); }
-    public boolean isEmailButtonDisplayed() { return this.emailLoginField.isDisplayed(); }
-    public void clickLoginForgotPasswordButton() { this.forgotPasswordButton.click(); }
+    @Step("Set Email on Login Page")
+    public void setEmailLoginField(String email) {
+        this.emailLoginField.sendKeys(email);
+    }
+
+    @Step("Set Password on Login Page")
+    public void setPasswordLoginField(String password) {
+        this.passwordLoginField.sendKeys(password);
+    }
+
+    @Step("Click LoginButton on Login Page")
+    public void clickLoginButton() {
+        this.loginButton.click();
+    }
+
+    @Step("Verify EmailButton is Displayed")
+    public boolean isEmailButtonDisplayed() {
+        return this.emailLoginField.isDisplayed();
+    }
+
+    @Step("Click Login Forgot Password Button on Login Page")
+    public void clickLoginForgotPasswordButton() {
+        this.forgotPasswordButton.click();
+    }
 }

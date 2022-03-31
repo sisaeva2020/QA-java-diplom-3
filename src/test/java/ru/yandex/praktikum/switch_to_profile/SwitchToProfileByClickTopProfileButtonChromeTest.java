@@ -1,14 +1,23 @@
 package ru.yandex.praktikum.switch_to_profile;
 
 import io.qameta.allure.junit4.DisplayName;
+import org.junit.After;
 import org.junit.Test;
 import ru.yandex.praktikum.*;
+
 import java.util.Map;
+
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.page;
 import static org.junit.Assert.assertTrue;
 
 public class SwitchToProfileByClickTopProfileButtonChromeTest extends BaseTestChrome {
+    @After
+    public void tearsDown() {
+        UserOperations userOperations = new UserOperations();
+        userOperations.delete();
+    }
+
     @Test
     @DisplayName("Check Switch To Profile By Click Top Profile Button Chrome")
     public void checkSwitchToProfileByClickTopProfileButton() {
@@ -24,11 +33,8 @@ public class SwitchToProfileByClickTopProfileButtonChromeTest extends BaseTestCh
         mainPage.clickProfileTopButton();
 
         ProfilePage profilePage = page(ProfilePage.class);
+        profilePage.clickLogOutButton();
 
-        userOperations.delete();
-
-        assertTrue(profilePage.isLogOutButtonDisplayed());
-
-
+        assertTrue(profilePage.isLogOutButtonEnabled());
     }
 }

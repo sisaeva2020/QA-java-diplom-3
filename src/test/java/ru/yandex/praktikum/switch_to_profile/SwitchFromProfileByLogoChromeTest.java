@@ -1,14 +1,23 @@
 package ru.yandex.praktikum.switch_to_profile;
 
 import io.qameta.allure.junit4.DisplayName;
+import org.junit.After;
 import org.junit.Test;
 import ru.yandex.praktikum.*;
+
 import java.util.Map;
+
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.page;
 import static org.junit.Assert.assertTrue;
 
 public class SwitchFromProfileByLogoChromeTest extends BaseTestChrome {
+    @After
+    public void tearsDown() {
+        UserOperations userOperations = new UserOperations();
+        userOperations.delete();
+    }
+
     @Test
     @DisplayName("Check Switch From Profile By Logo Chrome")
     public void checkSwitchFromProfileByLogo() {
@@ -26,11 +35,6 @@ public class SwitchFromProfileByLogoChromeTest extends BaseTestChrome {
         ProfilePage profilePage = page(ProfilePage.class);
         profilePage.clickByProfilePageLogoButton();
 
-        userOperations.delete();
-
         assertTrue(mainPage.isConstructorButtonDisplayed());
-
-
-
     }
 }

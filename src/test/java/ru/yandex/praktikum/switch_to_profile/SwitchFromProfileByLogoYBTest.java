@@ -1,6 +1,7 @@
 package ru.yandex.praktikum.switch_to_profile;
 
 import io.qameta.allure.junit4.DisplayName;
+import org.junit.After;
 import org.junit.Test;
 import ru.yandex.praktikum.*;
 
@@ -11,6 +12,12 @@ import static com.codeborne.selenide.Selenide.page;
 import static org.junit.Assert.assertTrue;
 
 public class SwitchFromProfileByLogoYBTest extends BaseTestYB {
+    @After
+    public void tearsDown() {
+        UserOperations userOperations = new UserOperations();
+        userOperations.delete();
+    }
+
     @Test
     @DisplayName("Check Switch From Profile By Logo YB")
     public void checkSwitchFromProfileByLogo() {
@@ -28,11 +35,6 @@ public class SwitchFromProfileByLogoYBTest extends BaseTestYB {
         ProfilePage profilePage = page(ProfilePage.class);
         profilePage.clickByProfilePageLogoButton();
 
-        userOperations.delete();
-
         assertTrue(mainPage.isConstructorButtonDisplayed());
-
-
-
     }
 }

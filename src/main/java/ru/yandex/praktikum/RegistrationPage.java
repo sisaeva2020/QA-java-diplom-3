@@ -1,6 +1,7 @@
 package ru.yandex.praktikum;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
@@ -22,10 +23,27 @@ public class RegistrationPage {
     @FindBy(how = How.XPATH, using = "//p[@class='input__error text_type_main-default']")
     public SelenideElement invalidPasswordErrorMessage;
 
-    public void setNameRegField (String name) { this.nameRegField.sendKeys(name); }
-    public void setEmailRegField(String email) { this.emailRegField.sendKeys(email); }
-    public void setPasswordRegField (String password) { this.passwordRegField.sendKeys(password); }
-    public void clickRegButton() { this.regButton.click(); }
+    @Step("Set Name Field on RegistrationPage")
+    public void setNameRegField(String name) {
+        this.nameRegField.sendKeys(name);
+    }
+
+    @Step("Click Email Field on RegistrationPage")
+    public void setEmailRegField(String email) {
+        this.emailRegField.sendKeys(email);
+    }
+
+    @Step("Click Password Field on RegistrationPage")
+    public void setPasswordRegField(String password) {
+        this.passwordRegField.sendKeys(password);
+    }
+
+    @Step("Click Register Button on RegistrationPage")
+    public void clickRegButton() {
+        this.regButton.click();
+    }
+
+    @Step("Verify Invalid Password Message is Displayed")
     public boolean isInvalidPasswordMessageDisplayed() {
         return this.invalidPasswordErrorMessage.isDisplayed();
     }

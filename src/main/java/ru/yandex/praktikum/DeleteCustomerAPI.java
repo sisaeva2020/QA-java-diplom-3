@@ -1,13 +1,15 @@
 package ru.yandex.praktikum;
 
+import io.qameta.allure.Step;
+
 import static io.restassured.RestAssured.given;
 import static ru.yandex.praktikum.Base.BASE_URL;
 
 public class DeleteCustomerAPI {
     public static final String PATH = BASE_URL + "auth/";
 
-    public void deleteCustomerByEmailAndPassword (String email, String password) {
-
+    @Step("Delete customer")
+    public void deleteCustomerByEmailAndPassword(String email, String password) {
 
         String body = "{\"email\":\"" + email + "\","
                 + "\"password\":\"" + password + "\"}";

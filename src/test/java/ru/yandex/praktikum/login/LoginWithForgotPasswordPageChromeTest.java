@@ -1,17 +1,26 @@
 package ru.yandex.praktikum.login;
 
-import io.qameta.allure.junit4.DisplayName;
+import io.qameta.allure.Description;
+import org.junit.After;
 import org.junit.Test;
 import ru.yandex.praktikum.*;
+
 import java.util.Map;
+
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.page;
 import static org.junit.Assert.assertTrue;
 
 public class LoginWithForgotPasswordPageChromeTest extends BaseTestChrome {
+    @After
+    public void tearsDown() {
+        UserOperations userOperations = new UserOperations();
+        userOperations.delete();
+    }
+
     @Test
-    @DisplayName("Check Login With Forgot Password Page Chrome")
-    public void checkLoginWithForgotPasswordPage () {
+    @Description("Check Login With Forgot Password Page Chrome")
+    public void checkLoginWithForgotPasswordPage() {
 
         UserOperations userOperations = new UserOperations();
         userOperations.register();
@@ -29,11 +38,6 @@ public class LoginWithForgotPasswordPageChromeTest extends BaseTestChrome {
         loginPage.clickLoginButton();
 
         MainPage mainPage = page(MainPage.class);
-
-        userOperations.delete();
-
         assertTrue(mainPage.isConstructorButtonDisplayed());
-
     }
-
 }

@@ -1,20 +1,29 @@
 package ru.yandex.praktikum.login;
 
 import io.qameta.allure.junit4.DisplayName;
+import org.junit.After;
 import org.junit.Test;
 import ru.yandex.praktikum.BaseTestChrome;
 import ru.yandex.praktikum.LoginPage;
 import ru.yandex.praktikum.MainPage;
 import ru.yandex.praktikum.UserOperations;
+
 import java.util.Map;
+
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.page;
 import static org.junit.Assert.assertTrue;
 
 public class LoginWithMiddleProfileButtonMainPageChromeTest extends BaseTestChrome {
+    @After
+    public void tearsDown() {
+        UserOperations userOperations = new UserOperations();
+        userOperations.delete();
+    }
+
     @Test
     @DisplayName("Check Login With Middle Profile Button MainPage Chrome")
-    public void checkLoginWithMiddleProfileButtonMainPage () {
+    public void checkLoginWithMiddleProfileButtonMainPage() {
         UserOperations userOperations = new UserOperations();
         userOperations.register();
 
@@ -29,11 +38,6 @@ public class LoginWithMiddleProfileButtonMainPageChromeTest extends BaseTestChro
         loginPage.setPasswordLoginField(newCustomerData.get("password"));
         loginPage.clickLoginButton();
 
-        userOperations.delete();
-
         assertTrue(mainPage.isConstructorButtonDisplayed());
-
-
     }
-
 }

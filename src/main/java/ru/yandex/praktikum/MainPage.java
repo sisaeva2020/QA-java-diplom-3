@@ -2,6 +2,7 @@ package ru.yandex.praktikum;
 
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
@@ -36,16 +37,48 @@ public class MainPage {
     public SelenideElement protostomiaMeatPict;
 
 
+    @Step("Click to Profile Middle Button on MainPage")
+    public void clickProfileMiddleButton() {
+        this.profileMiddleButton.click();
+    }
 
-    public void clickProfileMiddleButton() { this.profileMiddleButton.click(); }
-    public void clickProfileTopButton() { this.profileTopButton.click(); }
-    public void clickBunTub() { this.bunTub.click(); }
-    public void clickSauceTub() { this.sauceTub.click(); }
-    public void clickFillingTub() { this.fillingTub.click(); }
-    public boolean isConstructorButtonDisplayed() { return this.constructorButton.isDisplayed(); }
-    public boolean isFluorBunPictDisplayed() { return this.fluorBunPict.isDisplayed(); }
-    public boolean isSpicyXSaucePictDisplayed() { return this.spicyXSaucePict.isDisplayed(); }
-    public boolean isProtostomiaMeatPictDisplayed() { return this.protostomiaMeatPict.isDisplayed(); }
+    @Step("Click to Profile Top Button on MainPage")
+    public void clickProfileTopButton() {
+        this.profileTopButton.click();
+    }
 
+    @Step("Click to BunTub on MainPage")
+    public void clickBunTub() {
+        this.bunTub.click();
+    }
 
+    @Step("Click to SauceTub on MainPage")
+    public void clickSauceTub() {
+        this.sauceTub.click();
+    }
+
+    @Step("Click to FillingTub on MainPage")
+    public void clickFillingTub() {
+        this.fillingTub.click();
+    }
+
+    @Step("Verify that Constructor Button is displayed on MainPage")
+    public boolean isConstructorButtonDisplayed() {
+        return this.constructorButton.isDisplayed();
+    }
+
+    @Step("Verify that Fluorescent Bun Picture is displayed on MainPage")
+    public boolean isFluorBunPictDisplayed() {
+        return this.fluorBunPict.isDisplayed();
+    }
+
+    @Step("Verify that Spicy X-Sauce Picture is displayed on MainPage")
+    public boolean isSpicyXSaucePictDisplayed() {
+        return this.spicyXSaucePict.isDisplayed();
+    }
+
+    @Step("Verify that Protostomia Meat Picture is displayed on MainPage")
+    public boolean isProtostomiaMeatPictDisplayed() {
+        return this.protostomiaMeatPict.isDisplayed();
+    }
 }
