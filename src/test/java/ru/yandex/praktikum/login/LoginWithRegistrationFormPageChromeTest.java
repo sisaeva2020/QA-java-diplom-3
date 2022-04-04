@@ -6,7 +6,7 @@ import org.junit.Test;
 import ru.yandex.praktikum.BaseTestChrome;
 import ru.yandex.praktikum.LoginPage;
 import ru.yandex.praktikum.MainPage;
-import ru.yandex.praktikum.UserOperations;
+import com.UserOperations;
 
 import java.util.Map;
 

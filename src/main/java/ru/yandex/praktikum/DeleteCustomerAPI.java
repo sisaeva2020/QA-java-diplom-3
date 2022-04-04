@@ -1,9 +1,10 @@
 package ru.yandex.praktikum;
 
+import com.Base;
 import io.qameta.allure.Step;
 
 import static io.restassured.RestAssured.given;
-import static ru.yandex.praktikum.Base.BASE_URL;
+import static com.Base.BASE_URL;
 
 public class DeleteCustomerAPI {
     public static final String PATH = BASE_URL + "auth/";

@@ -4,6 +4,7 @@ import io.qameta.allure.Description;
 import org.junit.After;
 import org.junit.Test;
 import ru.yandex.praktikum.*;
+import com.UserOperations;
 
 import java.util.Map;
 
