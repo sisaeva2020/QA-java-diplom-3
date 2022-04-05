@@ -3,8 +3,11 @@ package ru.yandex.praktikum.logout;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.After;
 import org.junit.Test;
-import ru.yandex.praktikum.*;
 import com.UserOperations;
+import ru.yandex.praktikum.BaseTestChrome;
+import ru.yandex.praktikum.LoginPage;
+import ru.yandex.praktikum.MainPage;
+import ru.yandex.praktikum.ProfilePage;
 
 import java.util.Map;
 

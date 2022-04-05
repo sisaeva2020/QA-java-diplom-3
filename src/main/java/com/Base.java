@@ -14,5 +14,4 @@ public class Base {
                 .setBaseUri(BASE_URL)
                 .build();
     }
-
 }
